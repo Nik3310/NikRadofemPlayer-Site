@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nikradofem.online/">
+    <meta property="og:title" content="NikRadofem">
+    <meta property="og:description" content="Слушай лучший микс Rock, Pop и Breakcore в прямом эфире 24/7.">
+    <meta property="og:image" content="https://nikradofem.online/assets/main_logo.png">
     <link rel="icon" type="image/x-icon" href="assets/icon.ico">
     <title>NikRadofem</title>
     <style>
@@ -402,7 +408,7 @@
             });
         });
 
-        // Sound initialisation
+        // Sound initialization
         audio.volume = volumeSlider.value;
         volumeSlider.addEventListener('input', (e) => audio.volume = e.target.value);
 
