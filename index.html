@@ -351,6 +351,7 @@
         </div>
     </section>
 
+
     <!-- Contacts -->
     <section class="content-section" id="contacts">
         <div>
@@ -457,10 +458,10 @@
                     const img = data.results[0].artworkUrl100.replace('100x100', '600x600');
                     artEl.style.backgroundImage = `url(${img})`;
                 } else {
-                    artEl.style.backgroundImage = `url('not_found.png')`;
+                    artEl.style.backgroundImage = `url('assets/not_found.png')`;
                 }
             } catch (e) {
-                artEl.style.backgroundImage = `url('not_found.png')`;
+                artEl.style.backgroundImage = `url('assets/not_found.png')`;
             }
         }
 
