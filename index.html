@@ -45,6 +45,17 @@
             animation: gradientBG 15s ease infinite;
         }
 
+        /* HeartBeat animation */
+        .playing-animation {
+            animation: heartbeat 10s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); box-shadow: 0 30px 60px rgba(0,0,0,0.6); }
+            50% { transform: scale(1.02); box-shadow: 0 30px 80px rgba(0, 255, 65, 0.3); }
+            100% { transform: scale(1); box-shadow: 0 30px 60px rgba(0,0,0,0.6); }
+        }
+
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -472,11 +483,13 @@
                 audio.play();
                 playIcon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
                 isPlaying = true;
+                artEl.classList.add('playing-animation');
             } else {
                 audio.pause();
                 playIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
                 isPlaying = false;
                 statusText.innerHTML = '<div class="status-dot"></div> В ПРЯМОМ ЭФИРЕ';
+                artEl.classList.remove('playing-animation');
             }
         });
 
@@ -514,7 +527,7 @@
 
         // Mute button
         const muteBtn = document.getElementById('muteBtn');
-        let lastVolume = 1; // Тут будем хранить уровень громкости до мута
+        let lastVolume = 1;
 
         function updateVolumeIcon(vol) {
             if(vol == 0) {
