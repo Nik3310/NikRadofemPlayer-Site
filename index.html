@@ -7,7 +7,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://nikradofem.online/">
     <meta property="og:title" content="NikRadofem">
-    <meta property="og:description" content="Слушай лучший микс Rock, Pop и Breakcore в прямом эфире 24/7.">
+    <meta property="og:description" data-i18n="og_description" content="Слушай лучший микс Rock, Pop и Breakcore в прямом эфире 24/7.">
     <meta property="og:image" content="https://nikradofem.online/assets/logo.png">
     <link rel="icon" type="image/x-icon" href="assets/icon.ico">
     <link rel="manifest" href="manifest.json">
@@ -33,6 +33,27 @@
             color: var(--text);
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-switcher button {
+            background: none;
+            border: 1px solid var(--text-muted);
+            color: var(--text-muted);
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .lang-switcher button.active {
+            background: var(--accent);
+            color: var(--bg);
+            border-color: var(--accent);
         }
 
         /* --- Live background --- */
@@ -334,10 +355,14 @@
         </div>
 
         <nav id="nav-menu">
-            <a href="#player">Эфир</a>
-            <a href="#about">О нас</a>
-            <a href="#ads">Реклама</a>
-            <a href="#contacts">Контакты</a>
+            <a href="#player" data-i18n="nav_live">Эфир</a>
+            <a href="#about" data-i18n="nav_about">О нас</a>
+            <a href="#ads" data-i18n="nav_ads">Реклама</a>
+            <a href="#contacts" data-i18n="nav_contacts">Контакты</a>
+            <div class="lang-switcher">
+                <button id="lang-ru">RU</button>
+                <button id="lang-en">EN</button>
+            </div>
         </nav>
     </header>
 
@@ -346,9 +371,9 @@
             <div class="now-playing">
                 <div class="cover-art" id="art"></div>
                 <div class="track-text">
-                    <h5 id="live-status"><div class="status-dot"></div> В ПРЯМОМ ЭФИРЕ</h5>
+                    <h5 id="live-status"><div class="status-dot"></div><span data-i18n="status_live">В ПРЯМОМ ЭФИРЕ</span></h5>
                     <h2 id="title">NikRadofem Radio</h2>
-                    <p id="artist">Загрузка...</p>
+                    <p id="artist" data-i18n="loading">Загрузка...</p>
                 </div>
             </div>
 
@@ -357,7 +382,6 @@
                     <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                 </button>
                 <div class="volume-container">
-                    <!-- Добавили id="muteBtn" и стиль cursor: pointer -->
                     <svg id="muteBtn" viewBox="0 0 24 24" style="cursor: pointer;">
                         <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
                     </svg>
@@ -375,16 +399,16 @@
     <!-- About us -->
     <section class="content-section" id="about">
         <div>
-            <h3>О NikRadofem</h3>
-            <p>NikRadofem — радиостанция, где вы услышите рок, брейккор и последние хиты. И это только начало!</p>
-            <p>Слушайте наше радио и погружайтесь в атмосферу качественного звука. Идеально для работы, путешествий и отдыха.</p>
+            <h3 data-i18n="about_title">О NikRadofem</h3>
+            <p data-i18n="about_p1">NikRadofem — радиостанция, где вы услышите рок, брейккор и последние хиты. И это только начало!</p>
+            <p data-i18n="about_p2">Слушайте наше радио и погружайтесь в атмосферу качественного звука. Идеально для работы, путешествий и отдыха.</p>
         </div>
         <div class="info-box">
-            <h4>Почему мы?</h4>
+            <h4 data-i18n="why_us_title">Почему мы?</h4>
             <ul style="list-style: none; margin-top: 20px;">
-                <li style="margin-bottom: 15px; color: var(--accent); font-weight: 600;">✓ Только хиты 24/7</li>
-                <li style="margin-bottom: 15px; color: var(--accent); font-weight: 600;">✓ Высокое качество потока</li>
-                <li style="margin-bottom: 15px; color: var(--accent); font-weight: 600;">✓ Уникальный выбор музыки</li>
+                <li style="margin-bottom: 15px; color: var(--accent); font-weight: 600;" data-i18n="why_us_1">✓ Только хиты 24/7</li>
+                <li style="margin-bottom: 15px; color: var(--accent); font-weight: 600;" data-i18n="why_us_2">✓ Высокое качество потока</li>
+                <li style="margin-bottom: 15px; color: var(--accent); font-weight: 600;" data-i18n="why_us_3">✓ Уникальный выбор музыки</li>
             </ul>
         </div>
     </section>
@@ -392,14 +416,14 @@
     <!-- Ads -->
     <section class="content-section" id="ads" style="background: rgba(0,0,0,0.3);">
         <div class="info-box">
-            <h4>История</h4>
-            <p>Наше радио существует с 2024 года. Все начиналось с простой идеи — создать платформу для лучшей музыки без лишнего шума.</p>
-            <p>В 2025 году мы запустили nikradofem.online, объединив слушателей по всему миру.</p>
+            <h4 data-i18n="history_title">История</h4>
+            <p data-i18n="history_p1">Наше радио существует с 2024 года. Все начиналось с простой идеи — создать платформу для лучшей музыки без лишнего шума.</p>
+            <p data-i18n="history_p2">В 2025 году мы запустили nikradofem.online, объединив слушателей по всему миру.</p>
         </div>
         <div>
-            <h3>Рекламодателям</h3>
-            <p>Хотите, чтобы ваш продукт услышали тысячи? Мы предлагаем выгодные пакеты аудио-рекламы и спонсорства.</p>
-            <p>Напишите нам для получения коммерческого предложения.</p>
+            <h3 data-i18n="advertisers_title">Рекламодателям</h3>
+            <p data-i18n="advertisers_p1">Хотите, чтобы ваш продукт услышали тысячи? Мы предлагаем выгодные пакеты аудио-рекламы и спонсорства.</p>
+            <p data-i18n="advertisers_p2">Напишите нам для получения коммерческого предложения.</p>
         </div>
     </section>
 
@@ -407,15 +431,15 @@
     <!-- Contacts -->
     <section class="content-section" id="contacts">
         <div>
-            <h3>Контакты</h3>
-            <p>Электронная почта: nikita.minaev@gmail.com</p>
+            <h3 data-i18n="contacts_title">Контакты</h3>
+            <p data-i18n="contacts_p1">Электронная почта: nikita.minaev@gmail.com</p>
         </div>
         <div class="info-box">
             <form action="https://formspree.io/f/xpqjkaqv" method="POST" style="display: flex; flex-direction: column; gap: 15px;">
-                <input type="text" name="name" placeholder="Ваше имя" required>
-                <input type="email" name="email" placeholder="Ваш Email" required>
-                <textarea name="message" placeholder="Сообщение" required></textarea>
-                <button type="submit">ОТПРАВИТЬ</button>
+                <input type="text" name="name" data-i18n="form_name" placeholder="Ваше имя" required>
+                <input type="email" name="email" data-i18n="form_email" placeholder="Ваш Email" required>
+                <textarea name="message" data-i18n="form_message" placeholder="Сообщение" required></textarea>
+                <button type="submit" data-i18n="form_send">ОТПРАВИТЬ</button>
             </form>
         </div>
     </section>
@@ -434,11 +458,107 @@
         const titleEl = document.getElementById('title');
         const artistEl = document.getElementById('artist');
         const artEl = document.getElementById('art');
-        const statusText = document.getElementById('live-status');
+        const statusText = document.getElementById('live-status').querySelector('span');
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('nav-menu');
 
         let isPlaying = false;
+
+        // --- i18n ---
+        const translations = {
+            ru: {
+                og_description: "Слушай лучший микс Rock, Pop и Breakcore в прямом эфире 24/7.",
+                nav_live: "Эфир",
+                nav_about: "О нас",
+                nav_ads: "Реклама",
+                nav_contacts: "Контакты",
+                status_live: "В ПРЯМОМ ЭФИРЕ",
+                status_buffering: "БУФЕРИЗАЦИЯ...",
+                loading: "Загрузка...",
+                copied: "Название скопировано!",
+                about_title: "О NikRadofem",
+                about_p1: "NikRadofem — радиостанция, где вы услышите рок, брейккор и последние хиты. И это только начало!",
+                about_p2: "Слушайте наше радио и погружайтесь в атмосферу качественного звука. Идеально для работы, путешествий и отдыха.",
+                why_us_title: "Почему мы?",
+                why_us_1: "✓ Только хиты 24/7",
+                why_us_2: "✓ Высокое качество потока",
+                why_us_3: "✓ Уникальный выбор музыки",
+                history_title: "История",
+                history_p1: "Наше радио существует с 2024 года. Все начиналось с простой идеи — создать платформу для лучшей музыки без лишнего шума.",
+                history_p2: "В 2025 году мы запустили nikradofem.online, объединив слушателей по всему миру.",
+                advertisers_title: "Рекламодателям",
+                advertisers_p1: "Хотите, чтобы ваш продукт услышали тысячи? Мы предлагаем выгодные пакеты аудио-рекламы и спонсорства.",
+                advertisers_p2: "Напишите нам для получения коммерческого предложения.",
+                contacts_title: "Контакты",
+                contacts_p1: "Электронная почта: nikita.minaev@gmail.com",
+                form_name: "Ваше имя",
+                form_email: "Ваш Email",
+                form_message: "Сообщение",
+                form_send: "ОТПРАВИТЬ",
+                schedule_rock: "Rock + Pop Mix",
+                schedule_breakcore: "BrakeCore"
+            },
+            en: {
+                og_description: "Listen to the best mix of Rock, Pop and Breakcore live 24/7.",
+                nav_live: "Live",
+                nav_about: "About Us",
+                nav_ads: "Advertising",
+                nav_contacts: "Contacts",
+                status_live: "LIVE",
+                status_buffering: "BUFFERING...",
+                loading: "Loading...",
+                copied: "Track name copied!",
+                about_title: "About NikRadofem",
+                about_p1: "NikRadofem is a radio station where you will hear rock, breakcore and the latest hits. And this is just the beginning!",
+                about_p2: "Listen to our radio and immerse yourself in an atmosphere of quality sound. Ideal for work, travel and leisure.",
+                why_us_title: "Why us?",
+                why_us_1: "✓ Only hits 24/7",
+                why_us_2: "✓ High quality stream",
+                why_us_3: "✓ Unique choice of music",
+                history_title: "History",
+                history_p1: "Our radio has been around since 2024. It all started with a simple idea - to create a platform for the best music without unnecessary noise.",
+                history_p2: "In 2025, we launched nikradofem.online, uniting listeners around the world.",
+                advertisers_title: "For Advertisers",
+                advertisers_p1: "Want your product to be heard by thousands? We offer profitable packages of audio advertising and sponsorship.",
+                advertisers_p2: "Write to us for a commercial offer.",
+                contacts_title: "Contacts",
+                contacts_p1: "Email: nikita.minaev@gmail.com",
+                form_name: "Your name",
+                form_email: "Your Email",
+                form_message: "Message",
+                form_send: "SEND",
+                schedule_rock: "Rock + Pop Mix",
+                schedule_breakcore: "BrakeCore"
+            }
+        };
+
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = translations[lang][key];
+                    } else {
+                        el.textContent = translations[lang][key];
+                    }
+                }
+            });
+            localStorage.setItem('lang', lang);
+            document.getElementById('lang-ru').classList.toggle('active', lang === 'ru');
+            document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+            renderSchedule(); // Re-render schedule with new lang
+        }
+
+        function initLanguage() {
+            const savedLang = localStorage.getItem('lang');
+            const browserLang = navigator.language.split('-')[0];
+            const lang = savedLang || (translations[browserLang] ? browserLang : 'ru');
+            setLanguage(lang);
+        }
+
+        document.getElementById('lang-ru').addEventListener('click', () => setLanguage('ru'));
+        document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
 
         // Hamburger menu
         hamburger.addEventListener('click', () => {
@@ -460,8 +580,9 @@
 
         // Button Play
         playBtn.addEventListener('click', () => {
+            const currentLang = document.documentElement.lang;
             if(!isPlaying) {
-                statusText.innerHTML = '<div class="status-dot"></div> БУФЕРИЗАЦИЯ...';
+                statusText.textContent = translations[currentLang].status_buffering;
                 audio.load();
                 audio.play();
                 playIcon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
@@ -471,7 +592,7 @@
                 audio.pause();
                 playIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
                 isPlaying = false;
-                statusText.innerHTML = '<div class="status-dot"></div> В ПРЯМОМ ЭФИРЕ';
+                statusText.textContent = translations[currentLang].status_live;
                 artEl.classList.remove('playing-animation');
             }
         });
@@ -480,9 +601,9 @@
         const copyTrackInfo = () => {
             const textToCopy = `${artistEl.innerText} - ${titleEl.innerText}`;
             navigator.clipboard.writeText(textToCopy).then(() => {
-                // Info to user
+                const currentLang = document.documentElement.lang;
                 const toast = document.createElement('div');
-                toast.innerText = "Название скопировано!";
+                toast.innerText = translations[currentLang].copied;
                 toast.style.cssText = `
             position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
             background: var(--accent); color: #000; padding: 10px 20px;
@@ -501,11 +622,13 @@
         artistEl.onclick = copyTrackInfo;
 
         audio.addEventListener('playing', () => {
-            statusText.innerHTML = '<div class="status-dot"></div> В ПРЯМОМ ЭФИРЕ';
+            const currentLang = document.documentElement.lang;
+            statusText.textContent = translations[currentLang].status_live;
         });
 
         audio.addEventListener('waiting', () => {
-            if(isPlaying) statusText.innerHTML = '<div class="status-dot"></div> БУФЕРИЗАЦИЯ...';
+            const currentLang = document.documentElement.lang;
+            if(isPlaying) statusText.textContent = translations[currentLang].status_buffering;
         });
 
         // Mute button
@@ -514,11 +637,9 @@
 
         function updateVolumeIcon(vol) {
             if(vol == 0) {
-                // Sound off
                 muteBtn.innerHTML = '<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>';
                 muteBtn.style.fill = "#888";
             } else {
-                // Sound on
                 muteBtn.innerHTML = '<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>';
                 muteBtn.style.fill = "var(--accent)";
             }
@@ -580,18 +701,17 @@
         }
 
         // --- Schedule System ---
-        // Расписание в UTC. 7:00-22:00 (UTC+2) -> 5:00-20:00 (UTC)
         const scheduleData = [
             {
                 startUTC: 5,
                 endUTC: 20,
-                name: "Rock + Pop Mix",
+                nameKey: "schedule_rock",
                 icon: '<path d="M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0 c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2l0,2 c0,0.55,0.45,1,1,1s1-0.45,1-1l0-2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20l0,2c0,0.55,0.45,1,1,1s1-0.45,1-1l0-2 c0-0.55-0.45-1-1-1S11,19.45,11,20z M5.64,4.22c-0.39-0.39-1.02-0.39-1.41,0s-0.39,1.02,0,1.41l1.41,1.41c0.39,0.39,1.02,0.39,1.41,0 s0.39-1.02,0-1.41L5.64,4.22z M18.36,16.95c-0.39-0.39-1.02-0.39-1.41,0s-0.39,1.02,0,1.41l1.41,1.41c0.39,0.39,1.02,0.39,1.41,0 s0.39-1.02,0-1.41L18.36,16.95z M18.36,4.22l-1.41,1.41c-0.39,0.39-0.39,1.02,0,1.41s1.02,0.39,1.41,0l1.41-1.41 c0.39-0.39,0.39-1.02,0-1.41S18.75,3.83,18.36,4.22z M5.64,16.95l-1.41,1.41c-0.39,0.39-0.39,1.02,0,1.41s1.02,0.39,1.41,0 l1.41-1.41c0.39-0.39,0.39-1.02,0-1.41S6.03,16.56,5.64,16.95z"/>'
             },
             {
                 startUTC: 20,
-                endUTC: 5, // Переход через полночь
-                name: "BrakeCore",
+                endUTC: 5,
+                nameKey: "schedule_breakcore",
                 icon: '<path d="M12.12,2.05c1.1,0.08,2.15,0.35,3.12,0.78c0.36,0.16,0.48,0.6,0.22,0.9c-0.18,0.21-0.46,0.29-0.72,0.2 c-0.81-0.27-1.67-0.42-2.57-0.42c-4.47,0-8.09,3.62-8.09,8.09s3.62,8.09,8.09,8.09c0.9,0,1.76-0.15,2.57-0.42 c0.26-0.09,0.54-0.01,0.72,0.2c0.26,0.3,0.14,0.74-0.22,0.9c-0.97,0.43-2.02,0.7-3.12,0.78c-0.4,0.03-0.8-0.03-1.12-0.22 c-5.06-0.33-9.09-4.52-9.09-9.63S6.04,3.01,11,2.27C11.37,2.22,11.75,2.02,12.12,2.05z"/>'
             }
         ];
@@ -600,13 +720,13 @@
             const container = document.getElementById('schedule-container');
             container.innerHTML = '';
             const userOffsetMinutes = new Date().getTimezoneOffset();
+            const currentLang = document.documentElement.lang;
 
             scheduleData.forEach((item, index) => {
                 const card = document.createElement('div');
                 card.className = 'schedule-card';
                 card.id = `sch-card-${index}`;
 
-                // Конвертация UTC в локальное время
                 const localStartHour = (item.startUTC - (userOffsetMinutes / 60) + 24) % 24;
                 const localEndHour = (item.endUTC - (userOffsetMinutes / 60) + 24) % 24;
 
@@ -619,7 +739,7 @@
                     </div>
                     <div>
                         <div class="sch-time">${startStr} - ${endStr}</div>
-                        <div class="sch-name">${item.name}</div>
+                        <div class="sch-name">${translations[currentLang][item.nameKey]}</div>
                     </div>
                 `;
                 container.appendChild(card);
@@ -636,10 +756,8 @@
                 let isActive = false;
 
                 if (item.startUTC < item.endUTC) {
-                    // Обычный диапазон (e.g., 5-20)
                     if (hourUTC >= item.startUTC && hourUTC < item.endUTC) isActive = true;
                 } else {
-                    // Переход через полночь (e.g., 20-5)
                     if (hourUTC >= item.startUTC || hourUTC < item.endUTC) isActive = true;
                 }
 
@@ -651,7 +769,7 @@
             });
         }
 
-        renderSchedule();
+        initLanguage();
         setInterval(updateMeta, 10000);
         setInterval(checkSchedule, 60000);
         updateMeta();
