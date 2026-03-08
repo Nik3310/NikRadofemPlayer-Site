@@ -550,6 +550,7 @@
             document.getElementById('lang-ru').classList.toggle('active', lang === 'ru');
             document.getElementById('lang-en').classList.toggle('active', lang === 'en');
             renderSchedule(); // Re-render schedule with new lang
+            checkSchedule(); // Re-apply active class immediately
         }
 
         function initLanguage() {
